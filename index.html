@@ -10,12 +10,13 @@
   :root { --black:#000; --dark:#1a1a1a; --mid:#555; --border:#ccc; --bg:#fff; }
   body { font-family:'Source Sans 3',sans-serif; background:#e0e0e0; color:var(--dark); font-size:12px; }
 
+  /* PAGE */
   .page { width:210mm; min-height:297mm; margin:24px auto; background:var(--bg); padding:13mm 13mm 11mm 13mm; box-shadow:0 4px 24px rgba(0,0,0,0.18); position:relative; }
 
   /* HEADER */
   .header { text-align:center; border-bottom:2.5px solid var(--black); padding-bottom:8px; margin-bottom:8px; }
   .logo-row { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:3px; }
-  .logo-icon { width:50px; height:50px; }
+  .logo-icon { width:50px; height:50px; flex-shrink:0; }
   .brand-block { text-align:left; }
   .brand-top { display:flex; align-items:center; gap:5px; }
   .brand-dash { width:20px; height:2px; background:var(--black); display:inline-block; }
@@ -31,7 +32,7 @@
   .report-title { text-align:center; margin:8px 0 10px 0; }
   .report-title h2 { font-size:14px; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:var(--black); border:2px solid var(--black); display:inline-block; padding:4px 24px; }
 
-  /* PURPOSE OF VISIT */
+  /* PURPOSE */
   .purpose-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; border:2px solid var(--black); padding:7px 12px; margin-bottom:11px; background:#f7f7f7; }
   .pv-label { font-weight:900; font-size:10.5px; color:var(--black); white-space:nowrap; text-transform:uppercase; letter-spacing:0.3px; flex-shrink:0; }
   .purpose-options { display:flex; flex-wrap:wrap; gap:5px; align-items:center; flex:1; }
@@ -72,10 +73,12 @@
   .dates-col .date-row { display:flex; align-items:flex-end; gap:5px; border-bottom:1.2px solid var(--border); padding-bottom:3px; margin-bottom:5px; }
   .dates-col .date-row .f-label { font-size:10px; }
   .checklist-col { border-left:1.5px solid var(--border); padding-left:12px; }
-  .check-row { display:flex; align-items:center; justify-content:space-between; padding:3px 0; border-bottom:1px solid #eee; font-size:10px; color:var(--dark); }
+  .check-row { display:flex; align-items:center; justify-content:space-between; padding:3px 0; border-bottom:1px solid #eee; font-size:10px; color:var(--dark); gap:8px; }
   .check-row:last-child { border-bottom:none; }
-  .check-box { width:14px; height:14px; border:1.5px solid var(--black); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; flex-shrink:0; user-select:none; margin-left:6px; }
-  .check-box.checked::after { content:'✓'; color:var(--black); }
+  .check-row span { flex:1; }
+  .check-box { width:16px; height:16px; border:1.5px solid var(--black); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; user-select:none; position:relative; }
+  .check-box svg { display:none; width:11px; height:11px; }
+  .check-box.checked svg { display:block; }
 
   /* REMARKS */
   .remarks-row { display:flex; align-items:flex-start; gap:6px; border-bottom:1.2px solid var(--border); padding-bottom:4px; margin-bottom:8px; margin-top:4px; }
@@ -100,9 +103,94 @@
   .download-btn { background:var(--black); color:#fff; border:none; padding:12px 44px; font-size:14px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; font-family:'Source Sans 3',sans-serif; box-shadow:0 3px 12px rgba(0,0,0,0.18); transition:background 0.2s; }
   .download-btn:hover { background:#222; }
 
+  /* ===================== MOBILE RESPONSIVE ===================== */
+  @media (max-width: 800px) {
+    body { font-size:13px; background:#f0f0f0; }
+
+    .page {
+      width:100%;
+      min-height:auto;
+      margin:0;
+      padding:14px 12px 16px 12px;
+      box-shadow:none;
+      border-radius:0;
+    }
+
+    .download-section {
+      width:100%;
+      padding:12px 16px 24px;
+    }
+
+    .download-btn {
+      width:100%;
+      padding:14px;
+      font-size:15px;
+    }
+
+    /* Header mobile */
+    .brand-name { font-size:15px; letter-spacing:2px; }
+    .company-name { font-size:14px; }
+    .logo-icon { width:36px; height:36px; }
+    .address-line, .aus-tag, .collab-text { font-size:7.5px; }
+
+    /* Title */
+    .report-title h2 { font-size:12px; letter-spacing:1px; padding:4px 14px; }
+
+    /* Purpose row */
+    .purpose-row { flex-direction:column; align-items:flex-start; gap:8px; padding:8px 10px; }
+    .pv-label { font-size:11px; }
+    .purpose-options { gap:6px; }
+    .purpose-chip { font-size:10px; padding:4px 10px; }
+    .purpose-other-input { width:140px; font-size:11px; }
+
+    /* Field rows - stack on mobile */
+    .field-row.two-col {
+      grid-template-columns: 1fr;
+      gap:6px;
+    }
+    .f-label { font-size:10px; white-space:normal; }
+    .f-input { font-size:12px; }
+    .field-pair { flex-wrap:wrap; gap:3px; }
+
+    /* Accessories table - make scrollable */
+    .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; margin-bottom:10px; }
+    .acc-table { min-width:400px; margin-bottom:0; font-size:10px; }
+    .acc-table th { font-size:10px; padding:4px; }
+    .acc-table td input { font-size:10px; }
+
+    /* Bottom grid - stack */
+    .bottom-grid { grid-template-columns:1fr; gap:10px; }
+    .dates-col { padding-right:0; border-bottom:1.5px solid var(--border); padding-bottom:10px; }
+    .checklist-col { border-left:none; padding-left:0; border-top:1.5px solid var(--border); padding-top:10px; }
+    .check-row { font-size:11px; padding:5px 0; }
+    .check-box { width:20px; height:20px; }
+    .check-box svg { width:13px; height:13px; }
+
+    /* Signature grid - stack */
+    .sig-grid { grid-template-columns:1fr; }
+    .sig-cell { border-right:none; border-bottom:1.5px solid var(--black); }
+    .sig-cell:last-child { border-bottom:none; }
+    .sig-cell textarea { min-height:50px; }
+
+    /* Remarks */
+    .remarks-row textarea { min-height:50px; }
+    .remarks-row { flex-direction:column; gap:4px; }
+
+    .intro-text { font-size:10px; }
+  }
+
+  @media (max-width: 480px) {
+    .page { padding:10px 10px 14px; }
+    .brand-name { font-size:13px; letter-spacing:1px; }
+    .company-name { font-size:12px; }
+    .report-title h2 { font-size:11px; padding:3px 10px; }
+    .acc-table { min-width:360px; font-size:9.5px; }
+    .purpose-chip { font-size:9.5px; padding:3px 8px; }
+  }
+
   @media print {
     body { background:#fff; }
-    .page { margin:0; box-shadow:none; padding:10mm; }
+    .page { margin:0; box-shadow:none; padding:10mm; width:210mm; }
     .download-section { display:none; }
   }
 </style>
@@ -132,7 +220,7 @@
     <div class="company-name">Shubham Tanks and Liners Pvt. Ltd.</div>
     <div class="collab-text">(In Technical Collaboration with Kingspan Water &amp; Energy, Australia)</div>
     <div class="address-line">127/128, Lodha Supremus – II, North Wing, Road No. 22, Wagle Industrial Estate, Thane – 400 604, Maharashtra, India</div>
-    <div class="address-line">T: +91-22-4974 8989 / +91-8080198211 <span>●</span> E: info@shubhamtanks.com <span>●</span> W: www.shubhamtanks.com</div>
+    <div class="address-line">T: +91-22-4974 8989 / +91-8080198211 <span>&#x25CF;</span> E: info@shubhamtanks.com <span>&#x25CF;</span> W: www.shubhamtanks.com</div>
     <div class="aus-tag">AUSTRALIAN TECHNOLOGY FOR RELIABLE WATER STORAGE SOLUTION IN INDIA</div>
   </div>
 
@@ -145,27 +233,27 @@
     <div class="purpose-options">
       <label class="purpose-opt">
         <input type="radio" name="purpose" value="Installation">
-        <span class="purpose-chip">&#128295; Installation</span>
+        <span class="purpose-chip">Installation</span>
       </label>
       <label class="purpose-opt">
         <input type="radio" name="purpose" value="Leakage">
-        <span class="purpose-chip">&#128167; Leakage</span>
+        <span class="purpose-chip">Leakage</span>
       </label>
       <label class="purpose-opt">
         <input type="radio" name="purpose" value="Reinstallation">
-        <span class="purpose-chip">&#128260; Reinstallation</span>
+        <span class="purpose-chip">Reinstallation</span>
       </label>
       <label class="purpose-opt">
         <input type="radio" name="purpose" value="Service / Maintenance">
-        <span class="purpose-chip">&#128295; Service / Maintenance</span>
+        <span class="purpose-chip">Service / Maintenance</span>
       </label>
       <label class="purpose-opt">
         <input type="radio" name="purpose" value="Inspection">
-        <span class="purpose-chip">&#128269; Inspection</span>
+        <span class="purpose-chip">Inspection</span>
       </label>
       <label class="purpose-opt">
         <input type="radio" name="purpose" id="pur_other_radio" value="Other">
-        <span class="purpose-chip">&#43; Other</span>
+        <span class="purpose-chip">+ Other</span>
       </label>
     </div>
     <input type="text" id="pur_other_text" class="purpose-other-input" placeholder="Specify other...">
@@ -216,17 +304,19 @@
   <div class="intro-text">The above tank has been successfully erected and commissioned by us and fitted with the following attachments and accessories:</div>
 
   <!-- ACCESSORIES TABLE -->
-  <table class="acc-table">
-    <thead>
-      <tr>
-        <th>Sr. No.</th>
-        <th>Particulars</th>
-        <th>Quantity</th>
-        <th>Location</th>
-      </tr>
-    </thead>
-    <tbody id="acc-tbody"></tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="acc-table">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Particulars</th>
+          <th>Quantity</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody id="acc-tbody"></tbody>
+    </table>
+  </div>
 
   <!-- BOTTOM: Dates + Checklist -->
   <div class="bottom-grid">
@@ -241,10 +331,38 @@
       </div>
     </div>
     <div class="checklist-col">
-      <div class="check-row"><span>The tank has been installed successfully</span><div class="check-box" onclick="toggleCheck(this)"></div></div>
-      <div class="check-row"><span>All tanks accessories are fitted as per customer requirement</span><div class="check-box" id="cb2" onclick="toggleCheck(this)"></div></div>
-      <div class="check-row"><span>No issue found</span><div class="check-box" id="cb3" onclick="toggleCheck(this)"></div></div>
-      <div class="check-row"><span>Commissioning done</span><div class="check-box" id="cb4" onclick="toggleCheck(this)"></div></div>
+      <div class="check-row">
+        <span>The tank has been installed successfully</span>
+        <div class="check-box" onclick="toggleCheck(this)" title="Click to check">
+          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="check-row">
+        <span>All tanks accessories are fitted as per customer requirement</span>
+        <div class="check-box" onclick="toggleCheck(this)" title="Click to check">
+          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="check-row">
+        <span>No issue found</span>
+        <div class="check-box" onclick="toggleCheck(this)" title="Click to check">
+          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="check-row">
+        <span>Commissioning done</span>
+        <div class="check-box" onclick="toggleCheck(this)" title="Click to check">
+          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -266,7 +384,7 @@
       <div class="sig-label-sm">Name of Installation in charge</div>
       <input type="text" class="f-input-line" id="name_incharge" placeholder="">
     </div>
-    <div class="sig-cell" style="border-top:1.5px solid var(--black);">
+    <div class="sig-cell">
       <div class="sig-cell-title">Customer Signature with Rubber Seal</div>
       <textarea id="cust_sig_note" rows="2" placeholder="Remarks / Seal note..."></textarea>
       <div style="height:8px;"></div>
@@ -318,162 +436,300 @@ function getPurpose(){
   return sel.value;
 }
 
+function formatDate(d){
+  if(!d) return '';
+  // d is yyyy-mm-dd
+  const p = d.split('-');
+  if(p.length===3) return p[2]+'/'+p[1]+'/'+p[0];
+  return d;
+}
+
 function downloadPDF(){
   const {jsPDF} = window.jspdf;
   const doc = new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-  const PW=210,PH=297,ML=13,MR=13,MT=12;
+  const PW=210, PH=297, ML=12, MR=12, MT=10;
   const CW=PW-ML-MR;
   let y=MT;
 
-  const BK=[0,0,0],WH=[255,255,255],GR=[120,120,120],LG=[200,200,200],BL=[20,20,120];
+  const BK=[0,0,0], WH=[255,255,255], GR=[100,100,100], LG=[200,200,200], BL=[10,10,120], DGRAY=[80,80,80];
 
-  function sf(style,size,color){ doc.setFont('helvetica',style||'normal'); doc.setFontSize(size||9); doc.setTextColor(...(color||BK)); }
-  function ck(n){ if(y+n>PH-10){doc.addPage();y=MT;} }
+  function sf(style,size,color){
+    doc.setFont('helvetica', style||'normal');
+    doc.setFontSize(size||9);
+    doc.setTextColor(...(color||BK));
+  }
+  function ck(n){ if(y+n>PH-12){ doc.addPage(); y=MT; } }
 
-  // HEADER BOX
-  doc.setDrawColor(...BK); doc.setLineWidth(0.6);
-  doc.rect(ML,y,CW,24);
-  sf('bold',15,BK); doc.text('— SHUBHAM —',ML+CW/2,y+8,{align:'center'});
-  sf('bold',8.5,BK); doc.text('TANKS AND LINERS',ML+CW/2,y+15,{align:'center'});
-  sf('bold',6,GR); doc.text('TM',PW-MR-2,y+4,{align:'right'});
-  y+=27;
+  // ===== HEADER =====
+  doc.setDrawColor(...BK);
+  doc.setLineWidth(0.7);
+  doc.line(ML, y, ML+CW, y);
+  y += 5;
 
-  sf('bold',14,BK); doc.text('SHUBHAM TANKS AND LINERS PVT. LTD.',ML+CW/2,y+5,{align:'center'}); y+=8;
-  sf('normal',7.5,GR); doc.text('(In Technical Collaboration with Kingspan Water & Energy, Australia)',ML+CW/2,y,{align:'center'}); y+=4.5;
-  sf('normal',6.5,BK); doc.text('127/128, Lodha Supremus – II, North Wing, Road No. 22, Wagle Industrial Estate, Thane – 400 604, Maharashtra, India',ML+CW/2,y,{align:'center'}); y+=4;
-  doc.text('T: +91-22-4974 8989 / +91-8080198211   ●   E: info@shubhamtanks.com   ●   W: www.shubhamtanks.com',ML+CW/2,y,{align:'center'}); y+=4.5;
-  doc.setDrawColor(...BK); doc.setLineWidth(0.7); doc.line(ML,y,ML+CW,y); y+=3.5;
-  sf('bold',6.5,BK); doc.text('AUSTRALIAN TECHNOLOGY FOR RELIABLE WATER STORAGE SOLUTION IN INDIA',ML+CW/2,y,{align:'center'}); y+=3.5;
-  doc.setDrawColor(...BK); doc.setLineWidth(0.7); doc.line(ML,y,ML+CW,y); y+=7;
+  sf('bold',16,BK);
+  doc.text('SHUBHAM TANKS AND LINERS PVT. LTD.', ML+CW/2, y, {align:'center'});
+  y += 5.5;
 
-  // TITLE
-  sf('bold',12,BK);
+  sf('normal',8,DGRAY);
+  doc.text('(In Technical Collaboration with Kingspan Water & Energy, Australia)', ML+CW/2, y, {align:'center'});
+  y += 4.5;
+
+  sf('normal',7,BK);
+  doc.text('127/128, Lodha Supremus - II, North Wing, Road No. 22, Wagle Industrial Estate, Thane - 400 604, Maharashtra, India', ML+CW/2, y, {align:'center'});
+  y += 4;
+
+  sf('normal',7,BK);
+  doc.text('T: +91-22-4974 8989 / +91-8080198211   |   E: info@shubhamtanks.com   |   W: www.shubhamtanks.com', ML+CW/2, y, {align:'center'});
+  y += 5;
+
+  doc.setDrawColor(...BK);
+  doc.setLineWidth(0.7);
+  doc.line(ML, y, ML+CW, y);
+  y += 3;
+
+  sf('bold',7,DGRAY);
+  doc.text('AUSTRALIAN TECHNOLOGY FOR RELIABLE WATER STORAGE SOLUTION IN INDIA', ML+CW/2, y, {align:'center'});
+  y += 3;
+
+  doc.setDrawColor(...BK);
+  doc.setLineWidth(0.7);
+  doc.line(ML, y, ML+CW, y);
+  y += 7;
+
+  // ===== TITLE =====
+  sf('bold',13,BK);
   const ttl='WORK COMPLETION REPORT';
-  doc.text(ttl,ML+CW/2,y+5,{align:'center'});
   const tw=doc.getTextWidth(ttl);
-  doc.setDrawColor(...BK); doc.setLineWidth(0.5);
-  doc.rect(ML+CW/2-tw/2-5,y-0.5,tw+10,8.5);
-  y+=13;
+  doc.setDrawColor(...BK);
+  doc.setLineWidth(0.6);
+  doc.rect(ML+CW/2-tw/2-6, y-1, tw+12, 9);
+  doc.text(ttl, ML+CW/2, y+5.5, {align:'center'});
+  y += 14;
 
-  // PURPOSE OF VISIT BOX
+  // ===== PURPOSE OF VISIT =====
   ck(12);
-  doc.setFillColor(247,247,247); doc.setDrawColor(...BK); doc.setLineWidth(0.7);
-  doc.rect(ML,y,CW,11,'FD');
-  sf('bold',9,BK); doc.text('PURPOSE OF VISIT :',ML+3,y+7.5);
-  const pvW=doc.getTextWidth('PURPOSE OF VISIT :');
-  const purpose=getPurpose();
+  doc.setFillColor(245,245,245);
+  doc.setDrawColor(...BK);
+  doc.setLineWidth(0.6);
+  doc.rect(ML, y, CW, 11, 'FD');
+  sf('bold',8.5,BK);
+  doc.text('PURPOSE OF VISIT :', ML+3, y+7.5);
+  const pvW = doc.getTextWidth('PURPOSE OF VISIT :');
+  const purpose = getPurpose();
   if(purpose){
-    const chipX=ML+pvW+9;
-    const chipW=doc.getTextWidth(purpose)+8;
-    doc.setFillColor(...BK); doc.rect(chipX-4,y+2.5,chipW,6.5,'F');
-    sf('bold',9,WH); doc.text(purpose,chipX,y+7.5);
+    const chipX = ML+pvW+8;
+    const chipW = doc.getTextWidth(purpose)+10;
+    doc.setFillColor(...BK);
+    doc.rect(chipX-5, y+2.5, chipW, 6.5, 'F');
+    sf('bold',8.5,WH);
+    doc.text(purpose, chipX, y+7.5);
   } else {
-    sf('normal',9,GR); doc.text('(Not selected)',ML+pvW+8,y+7);
+    sf('normal',8.5,GR);
+    doc.text('(Not selected)', ML+pvW+8, y+7.5);
   }
-  y+=15;
+  y += 15;
 
-  // FIELD ROWS
-  function fieldRow(lbl,val,rH=7){
-    ck(rH); sf('bold',8,BK); doc.text(lbl,ML,y+rH/2+1.5);
-    sf('normal',9,BL); doc.text(val,ML+doc.getTextWidth(lbl)+2,y+rH/2+1.5);
-    doc.setDrawColor(...LG); doc.setLineWidth(0.25); doc.line(ML,y+rH,ML+CW,y+rH); y+=rH;
-  }
-  function twoRow(l1,v1,l2,v2,rH=7){
+  // ===== FIELD HELPERS =====
+  function fieldRow(lbl, val, rH=8){
     ck(rH);
-    sf('bold',8,BK); doc.text(l1,ML,y+rH/2+1.5);
-    sf('normal',9,BL); doc.text(v1,ML+doc.getTextWidth(l1)+2,y+rH/2+1.5);
-    const c2=ML+CW/2+2;
-    sf('bold',8,BK); doc.text(l2,c2,y+rH/2+1.5);
-    sf('normal',9,BL); doc.text(v2,c2+doc.getTextWidth(l2)+2,y+rH/2+1.5);
-    doc.setDrawColor(...LG); doc.setLineWidth(0.25); doc.line(ML,y+rH,ML+CW,y+rH); y+=rH;
+    sf('bold',8,BK);
+    doc.text(lbl, ML, y+rH-1.5);
+    sf('normal',8.5,BL);
+    const maxW = CW - doc.getTextWidth(lbl) - 4;
+    const lines = doc.splitTextToSize(val, maxW);
+    doc.text(lines[0]||'', ML+doc.getTextWidth(lbl)+3, y+rH-1.5);
+    doc.setDrawColor(...LG);
+    doc.setLineWidth(0.25);
+    doc.line(ML, y+rH, ML+CW, y+rH);
+    y += rH;
+  }
+  function twoRow(l1,v1,l2,v2,rH=8){
+    ck(rH);
+    const half=CW/2;
+    sf('bold',8,BK);
+    doc.text(l1, ML, y+rH-1.5);
+    sf('normal',8.5,BL);
+    doc.text(v1, ML+doc.getTextWidth(l1)+3, y+rH-1.5);
+    const c2=ML+half+2;
+    sf('bold',8,BK);
+    doc.text(l2, c2, y+rH-1.5);
+    sf('normal',8.5,BL);
+    doc.text(v2, c2+doc.getTextWidth(l2)+3, y+rH-1.5);
+    doc.setDrawColor(...LG);
+    doc.setLineWidth(0.25);
+    doc.line(ML, y+rH, ML+CW, y+rH);
+    y += rH;
   }
 
-  twoRow('SERVICE REPORT NO. :',g('srv_no'),'DATE :',g('report_date'));
-  twoRow('CUSTOMER ORDER NO. :',g('cust_order_no'),'CUSTOMER ORDER DATE :',g('cust_order_date'));
-  fieldRow('CUSTOMER NAME :',g('cust_name'));
-  fieldRow('CUSTOMER ADDRESS :',g('cust_address'),8);
-  twoRow('TANKS MODEL :',g('tank_model'),'CAPACITY (Ltrs.) :',g('capacity'));
-  y+=3;
+  twoRow('SERVICE REPORT NO. :', g('srv_no'), 'DATE :', formatDate(g('report_date')));
+  twoRow('CUSTOMER ORDER NO. :', g('cust_order_no'), 'CUSTOMER ORDER DATE :', formatDate(g('cust_order_date')));
+  fieldRow('CUSTOMER NAME :', g('cust_name'));
+  fieldRow('CUSTOMER ADDRESS :', g('cust_address'), 9);
+  twoRow('TANKS MODEL :', g('tank_model'), 'CAPACITY (Ltrs.) :', g('capacity'));
+  y += 3;
 
-  sf('italic',7.5,BK); doc.text('The above tank has been successfully erected and commissioned by us and fitted with the following attachments and accessories:',ML,y); y+=6;
+  sf('italic',7.5,BK);
+  doc.text('The above tank has been successfully erected and commissioned by us and fitted with the following attachments and accessories:', ML, y);
+  y += 6;
 
-  // TABLE
-  const cW=[13,CW-13-27-31,27,31],tHdr=['Sr. No.','Particulars','Quantity','Location'],rH=6.5;
-  doc.setFillColor(...BK); doc.rect(ML,y,CW,rH+1,'F');
+  // ===== ACCESSORIES TABLE =====
+  ck(10);
+  const cW=[13, CW-13-27-31, 27, 31];
+  const tHdr=['Sr. No.','Particulars','Quantity','Location'];
+  const rowH=6.5;
+
+  // Header
+  doc.setFillColor(...BK);
+  doc.rect(ML, y, CW, rowH+1, 'F');
   let cx=ML;
-  tHdr.forEach((h,i)=>{ sf('bold',8,WH); doc.text(h,cx+cW[i]/2,y+rH/2+1.5,{align:'center'}); cx+=cW[i]; });
-  y+=rH+1;
+  tHdr.forEach((h,i)=>{
+    sf('bold',8,WH);
+    doc.text(h, cx+cW[i]/2, y+rowH/2+1.5, {align:'center'});
+    cx+=cW[i];
+  });
+  y+=rowH+1;
+
   for(let i=1;i<=10;i++){
-    ck(rH);
-    doc.setFillColor(i%2===0?248:255,i%2===0?248:255,i%2===0?248:255);
-    doc.rect(ML,y,CW,rH,'F');
-    doc.setDrawColor(...LG); doc.setLineWidth(0.25); doc.rect(ML,y,CW,rH);
+    ck(rowH);
+    doc.setFillColor(i%2===0?246:255, i%2===0?246:255, i%2===0?246:255);
+    doc.rect(ML, y, CW, rowH, 'F');
+    doc.setDrawColor(...LG);
+    doc.setLineWidth(0.25);
+    doc.rect(ML, y, CW, rowH);
     let rx=ML;
-    [String(i),g('p'+i),g('q'+i),g('l'+i)].forEach((v,j)=>{
-      if(j>0){doc.setDrawColor(...LG);doc.line(rx,y,rx,y+rH);}
-      sf('normal',j===0?8:8.5,j===0?GR:BL);
-      doc.text(v,rx+cW[j]/2,y+rH/2+1.5,{align:'center'});
+    [String(i), g('p'+i), g('q'+i), g('l'+i)].forEach((v,j)=>{
+      if(j>0){ doc.setDrawColor(...LG); doc.line(rx, y, rx, y+rowH); }
+      sf('normal', j===0?8:8.5, j===0?GR:BK);
+      doc.text(v, rx+cW[j]/2, y+rowH/2+1.5, {align:'center'});
       rx+=cW[j];
     });
-    y+=rH;
+    y+=rowH;
   }
-  y+=4;
+  y+=5;
 
-  // DATES + CHECKLIST
-  ck(26);
-  const hCW=CW/2-5,dsy=y;
-  function dRow(lbl,val){ ck(7); sf('bold',7.5,BK); doc.text(lbl,ML,y+4); sf('normal',8.5,BL); doc.text(val,ML+doc.getTextWidth(lbl)+2,y+4); doc.setDrawColor(...LG); doc.setLineWidth(0.25); doc.line(ML,y+6,ML+hCW,y+6); y+=7; }
-  dRow('Date of Completion of Installation :',g('date_completion'));
-  dRow('Date of Handing Over :',g('date_handing'));
+  // ===== DATES + CHECKLIST =====
+  ck(32);
+  const hCW=CW/2-6;
+  const dsy=y;
 
-  let ry=dsy; const rX=ML+CW/2+3;
-  const checkRows=document.querySelectorAll('.check-row');
-  checkRows.forEach(row=>{
-    const lbl=row.querySelector('span').textContent;
-    const chk=row.querySelector('.check-box').classList.contains('checked');
+  // Dates column
+  function dRow(lbl,val){
+    sf('bold',7.5,BK);
+    doc.text(lbl, ML, y+4);
+    sf('normal',8.5,BL);
+    doc.text(val, ML+doc.getTextWidth(lbl)+3, y+4);
+    doc.setDrawColor(...LG);
+    doc.setLineWidth(0.25);
+    doc.line(ML, y+6, ML+hCW, y+6);
+    y+=8;
+  }
+  dRow('Date of Completion of Installation :', formatDate(g('date_completion')));
+  dRow('Date of Handing Over :', formatDate(g('date_handing')));
+
+  // Checklist column
+  let ry=dsy;
+  const rX=ML+CW/2+4;
+  const checkBoxes=document.querySelectorAll('.check-box');
+  const checkLabels=[
+    'The tank has been installed successfully',
+    'All tanks accessories are fitted as per customer requirement',
+    'No issue found',
+    'Commissioning done'
+  ];
+  checkLabels.forEach((lbl,idx)=>{
+    const chk = checkBoxes[idx] && checkBoxes[idx].classList.contains('checked');
+    const lns = doc.splitTextToSize(lbl, CW/2-14);
     sf('normal',7.5,BK);
-    const lns=doc.splitTextToSize(lbl,CW/2-14);
-    lns.forEach((ln,li)=>doc.text(ln,rX,ry+4+li*4));
-    doc.setDrawColor(...BK); doc.setLineWidth(0.5); doc.rect(ML+CW-6,ry+1,5,5);
-    if(chk){sf('bold',8,BK);doc.text('✓',ML+CW-4.5,ry+5);}
-    ry+=Math.max(6,lns.length*4+2);
+    lns.forEach((ln,li)=>{ doc.text(ln, rX, ry+4+li*4); });
+    // Draw checkbox square
+    doc.setDrawColor(...BK);
+    doc.setLineWidth(0.5);
+    doc.rect(ML+CW-7, ry+1, 6, 6);
+    if(chk){
+      // Draw a proper tick mark using lines
+      doc.setDrawColor(...BK);
+      doc.setLineWidth(1.0);
+      doc.line(ML+CW-6.2, ry+4.2, ML+CW-4.5, ry+6.0);
+      doc.line(ML+CW-4.5, ry+6.0, ML+CW-1.8, ry+2.5);
+    }
+    ry += Math.max(8, lns.length*4+3);
   });
-  y=Math.max(y,ry)+4;
+  y = Math.max(y, ry)+5;
 
-  // CUSTOMER REMARKS
-  ck(12); sf('bold',8.5,BK); doc.text('Customer Remarks :',ML,y+4);
+  // ===== CUSTOMER REMARKS =====
+  ck(14);
+  sf('bold',8.5,BK);
+  doc.text('Customer Remarks :', ML, y+4);
   const crW=doc.getTextWidth('Customer Remarks :');
-  sf('normal',9,BL);
-  doc.splitTextToSize(g('cust_remarks'),CW-crW-4).forEach((ln,i)=>doc.text(ln,ML+crW+3,y+4+i*4));
-  doc.setDrawColor(...LG); doc.setLineWidth(0.25); doc.line(ML,y+10,ML+CW,y+10); y+=14;
+  sf('normal',8.5,BK);
+  const crLines=doc.splitTextToSize(g('cust_remarks')||'', CW-crW-5);
+  crLines.forEach((ln,i)=>doc.text(ln, ML+crW+4, y+4+i*4.5));
+  doc.setDrawColor(...LG);
+  doc.setLineWidth(0.25);
+  const crH=Math.max(10, crLines.length*4.5+6);
+  doc.line(ML, y+crH, ML+CW, y+crH);
+  y += crH+5;
 
-  // SIGNATURES
-  ck(55); const sH=55,hW=CW/2;
-  doc.setDrawColor(...BK); doc.setLineWidth(0.6);
-  doc.rect(ML,y,CW,sH); doc.line(ML+hW,y,ML+hW,y+sH);
-  sf('bold',7.5,BK); doc.text('For SHUBHAM TANKS AND LINERS PVT. LTD.',ML+2,y+5);
-  sf('normal',6,GR); doc.text('(In Technical Collaboration with Kingspan Water & Energy, Australia)',ML+2,y+9);
-  sf('bold',7.5,BK); doc.text('Installation in charge Remarks :',ML+hW+2,y+5);
-  sf('normal',8,BL); doc.splitTextToSize(g('install_remarks'),hW-6).forEach((ln,i)=>doc.text(ln,ML+hW+2,y+11+i*4));
-  const sly=y+sH-18;
-  doc.setDrawColor(...LG); doc.setLineWidth(0.3); doc.line(ML+2,sly,ML+hW-4,sly);
-  sf('bold',7,BK); doc.text('Signature',ML+2,sly+4); doc.text('Name of Installation in charge',ML+2,sly+9);
-  sf('normal',8,BL); doc.text(g('name_incharge'),ML+2,sly+14);
-  y+=sH;
+  // ===== SIGNATURE SECTION =====
+  ck(62);
+  const sH=62, hW=CW/2;
+  doc.setDrawColor(...BK);
+  doc.setLineWidth(0.6);
+  doc.rect(ML, y, CW, sH);
+  doc.line(ML+hW, y, ML+hW, y+sH);
 
-  ck(40); const bH=40;
-  doc.setDrawColor(...BK); doc.setLineWidth(0.6);
-  doc.rect(ML,y,CW,bH); doc.line(ML+hW,y,ML+hW,y+bH);
-  sf('bold',7.5,BK); doc.text('Customer Signature with Rubber Seal',ML+2,y+5);
-  sf('normal',8,BL); doc.splitTextToSize(g('cust_sig_note'),hW-6).forEach((ln,i)=>doc.text(ln,ML+2,y+11+i*4));
-  sf('bold',7.5,BK); doc.text("Name of Customer's Authorised Person :",ML+hW+2,y+5);
-  sf('normal',8.5,BL); doc.text(g('auth_person'),ML+hW+2,y+12);
-  sf('bold',7.5,BK); doc.text('Designation :',ML+hW+2,y+22);
-  sf('normal',8.5,BL); doc.text(g('designation'),ML+hW+2+doc.getTextWidth('Designation :')+2,y+22);
-  y+=bH;
+  // Left cell
+  sf('bold',8,BK);
+  doc.text('For SHUBHAM TANKS AND LINERS PVT. LTD.', ML+2, y+6);
+  sf('normal',6.5,DGRAY);
+  doc.text('(In Technical Collaboration with Kingspan Water & Energy, Australia)', ML+2, y+11);
 
+  sf('bold',7.5,BK);
+  doc.text('Installation in charge Remarks :', ML+2, y+17);
+  sf('normal',8,BK);
+  const irLines=doc.splitTextToSize(g('install_remarks')||'', hW-6);
+  irLines.forEach((ln,i)=>doc.text(ln, ML+2, y+22+i*4.5));
+
+  // Signature lines at bottom of left cell
+  doc.setDrawColor(...LG);
+  doc.setLineWidth(0.3);
+  doc.line(ML+2, y+sH-17, ML+hW-4, y+sH-17);
+  sf('bold',7,BK);
+  doc.text('Signature', ML+2, y+sH-12);
+  doc.line(ML+2, y+sH-8, ML+hW-4, y+sH-8);
+  doc.text('Name of Installation in charge', ML+2, y+sH-3);
+  sf('normal',8.5,BL);
+  doc.text(g('name_incharge'), ML+2, y+sH+2);
+
+  // Right cell
+  sf('bold',8,BK);
+  doc.text('Customer Signature with Rubber Seal', ML+hW+2, y+6);
+  sf('normal',8,BK);
+  const csLines=doc.splitTextToSize(g('cust_sig_note')||'', hW-6);
+  csLines.forEach((ln,i)=>doc.text(ln, ML+hW+2, y+12+i*4.5));
+
+  doc.setDrawColor(...BK);
+  doc.setLineWidth(0.5);
+  doc.line(ML+hW+2, y+sH/2+2, ML+CW-3, y+sH/2+2);
+
+  sf('bold',8,BK);
+  doc.text("Name of Customer's Authorised Person :", ML+hW+2, y+sH/2+8);
+  doc.setDrawColor(...LG);
+  doc.setLineWidth(0.3);
+  doc.line(ML+hW+2, y+sH/2+13, ML+CW-3, y+sH/2+13);
+  sf('normal',8.5,BL);
+  doc.text(g('auth_person'), ML+hW+2, y+sH/2+12);
+  sf('bold',8,BK);
+  doc.text('Designation :', ML+hW+2, y+sH/2+22);
+  doc.line(ML+hW+2, y+sH/2+27, ML+CW-3, y+sH/2+27);
+  sf('normal',8.5,BL);
+  doc.text(g('designation'), ML+hW+2+doc.getTextWidth('Designation :')+2, y+sH/2+22);
+  y += sH+8;
+
+  // Footer
   sf('normal',6,[180,180,180]);
-  doc.text(`Generated: ${new Date().toLocaleString()}`,ML+CW/2,PH-5,{align:'center'});
+  doc.text('Generated: '+new Date().toLocaleString(), ML+CW/2, PH-5, {align:'center'});
+
   doc.save('WCR_Shubham_Tanks.pdf');
 }
 </script>
