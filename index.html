@@ -6,380 +6,217 @@
 <title>Work Completion Report – Shubham Tanks and Liners</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --black:#000; --dark:#1a1a1a; --mid:#555; --border:#ccc; --bg:#fff; }
-  body { font-family:'Source Sans 3',sans-serif; background:#e0e0e0; color:var(--dark); font-size:12px; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--black:#000;--dark:#1a1a1a;--mid:#555;--border:#ccc;--bg:#fff}
+  body{font-family:'Source Sans 3',sans-serif;background:#e0e0e0;color:var(--dark);font-size:12px}
 
   /* PAGE */
-  .page { width:210mm; min-height:297mm; margin:24px auto; background:var(--bg); padding:13mm 13mm 11mm 13mm; box-shadow:0 4px 24px rgba(0,0,0,0.18); position:relative; }
+  .page{width:210mm;min-height:297mm;margin:24px auto;background:var(--bg);padding:10mm 12mm 8mm 12mm;box-shadow:0 4px 24px rgba(0,0,0,.18);position:relative}
 
   /* HEADER */
-  .header { text-align:center; border-bottom:2.5px solid var(--black); padding-bottom:8px; margin-bottom:8px; }
-  .logo-row { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:3px; }
-  .logo-icon { width:50px; height:50px; flex-shrink:0; }
-  .brand-block { text-align:left; }
-  .brand-top { display:flex; align-items:center; gap:5px; }
-  .brand-dash { width:20px; height:2px; background:var(--black); display:inline-block; }
-  .brand-name { font-size:19px; font-weight:900; letter-spacing:4px; color:var(--black); }
-  .brand-sub { font-size:9.5px; font-weight:700; letter-spacing:2px; color:var(--black); margin-top:1px; }
-  .company-name { font-size:19px; font-weight:900; color:var(--black); letter-spacing:0.3px; margin-bottom:2px; text-transform:uppercase; }
-  .collab-text { font-size:9px; color:var(--mid); font-style:italic; margin-bottom:4px; }
-  .address-line { font-size:8px; color:var(--dark); line-height:1.7; }
-  .address-line span { margin:0 3px; }
-  .aus-tag { font-size:7.5px; font-weight:700; letter-spacing:0.4px; color:var(--mid); margin-top:3px; border-top:1px solid var(--border); padding-top:3px; }
+  .header{border-bottom:2.5px solid var(--black);padding-bottom:7px;margin-bottom:7px}
+  .header-inner{display:flex;align-items:center;gap:14px}
+  .logo-wrap{flex-shrink:0;width:120px}
+  .logo-wrap img{width:100%;height:auto;display:block}
+  .header-center{flex:1;text-align:center}
+  .company-name{font-size:17px;font-weight:900;color:var(--black);letter-spacing:.3px;margin-bottom:2px;text-transform:uppercase}
+  .collab-text{font-size:8.5px;color:var(--mid);font-style:italic;margin-bottom:3px}
+  .address-line{font-size:7.5px;color:var(--dark);line-height:1.7}
+  .address-line span{margin:0 3px}
+  .aus-tag{font-size:7px;font-weight:700;letter-spacing:.4px;color:var(--mid);margin-top:3px;border-top:1px solid var(--border);padding-top:3px}
 
   /* TITLE */
-  .report-title { text-align:center; margin:8px 0 10px 0; }
-  .report-title h2 { font-size:14px; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:var(--black); border:2px solid var(--black); display:inline-block; padding:4px 24px; }
+  .report-title{text-align:center;margin:6px 0 7px}
+  .report-title h2{font-size:13px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--black);border:2px solid var(--black);display:inline-block;padding:3px 20px}
 
   /* PURPOSE */
-  .purpose-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; border:2px solid var(--black); padding:7px 12px; margin-bottom:11px; background:#f7f7f7; }
-  .pv-label { font-weight:900; font-size:10.5px; color:var(--black); white-space:nowrap; text-transform:uppercase; letter-spacing:0.3px; flex-shrink:0; }
-  .purpose-options { display:flex; flex-wrap:wrap; gap:5px; align-items:center; flex:1; }
-  .purpose-opt { display:flex; align-items:center; cursor:pointer; }
-  .purpose-opt input[type="radio"] { display:none; }
-  .purpose-chip { border:1.5px solid #999; padding:3px 10px; font-size:9.5px; font-weight:600; color:var(--mid); cursor:pointer; background:#fff; transition:all 0.15s; white-space:nowrap; user-select:none; }
-  .purpose-opt input[type="radio"]:checked + .purpose-chip { background:var(--black); color:#fff; border-color:var(--black); }
-  .purpose-other-input { border:none; border-bottom:1.5px solid #999; outline:none; font-size:10.5px; font-family:'Source Sans 3',sans-serif; background:transparent; padding:2px 4px; color:var(--dark); width:110px; display:none; }
-  .purpose-other-input.visible { display:inline-block; }
-  .purpose-other-input:focus { border-bottom-color:var(--black); }
+  .purpose-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:2px solid var(--black);padding:6px 10px;margin-bottom:8px;background:#f7f7f7}
+  .pv-label{font-weight:900;font-size:10px;color:var(--black);white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;flex-shrink:0}
+  .purpose-options{display:flex;flex-wrap:wrap;gap:4px;align-items:center;flex:1}
+  .purpose-opt{display:flex;align-items:center;cursor:pointer}
+  .purpose-opt input[type="radio"]{display:none}
+  .purpose-chip{border:1.5px solid #999;padding:2px 8px;font-size:9px;font-weight:600;color:var(--mid);cursor:pointer;background:#fff;transition:all .15s;white-space:nowrap;user-select:none}
+  .purpose-opt input[type="radio"]:checked+.purpose-chip{background:var(--black);color:#fff;border-color:var(--black)}
+  .purpose-other-input{border:none;border-bottom:1.5px solid #999;outline:none;font-size:10px;font-family:'Source Sans 3',sans-serif;background:transparent;padding:2px 4px;color:var(--dark);width:100px;display:none}
+  .purpose-other-input.visible{display:inline-block}
 
-  /* FIELD ROWS */
-  .field-grid { width:100%; margin-bottom:6px; }
-  .field-row { display:flex; align-items:flex-end; gap:8px; margin-bottom:6px; border-bottom:1.2px solid var(--border); padding-bottom:3px; }
-  .field-row.two-col { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .field-pair { display:flex; align-items:flex-end; gap:5px; border-bottom:1.2px solid var(--border); padding-bottom:3px; }
-  .f-label { font-weight:700; font-size:10.5px; color:var(--black); white-space:nowrap; flex-shrink:0; }
-  .f-input { flex:1; border:none; outline:none; font-size:11px; font-family:'Source Sans 3',sans-serif; background:transparent; color:var(--dark); padding:0 3px 1px 3px; min-width:0; }
-  .f-input:focus { background:#f0f6ff; border-radius:2px; }
+  /* FIELDS */
+  .field-grid{width:100%;margin-bottom:5px}
+  .field-row{display:flex;align-items:flex-end;gap:8px;margin-bottom:5px;border-bottom:1.2px solid var(--border);padding-bottom:2px}
+  .field-row.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .field-pair{display:flex;align-items:flex-end;gap:5px;border-bottom:1.2px solid var(--border);padding-bottom:2px}
+  .f-label{font-weight:700;font-size:10px;color:var(--black);white-space:nowrap;flex-shrink:0}
+  .f-input{flex:1;border:none;outline:none;font-size:10.5px;font-family:'Source Sans 3',sans-serif;background:transparent;color:var(--dark);padding:0 3px 1px 3px;min-width:0}
+  .f-input:focus{background:#f0f6ff;border-radius:2px}
+  .intro-text{font-size:9.5px;color:var(--dark);margin-bottom:5px;font-style:italic}
 
-  .intro-text { font-size:10px; color:var(--dark); margin-bottom:6px; font-style:italic; }
-
-  /* ACCESSORIES TABLE */
-  .acc-table { width:100%; border-collapse:collapse; margin-bottom:10px; font-size:11px; }
-  .acc-table th { background:var(--black); color:#fff; font-weight:700; text-align:center; padding:5px 6px; border:1px solid var(--black); font-size:11px; }
-  .acc-table th:first-child { width:48px; }
-  .acc-table th:nth-child(3) { width:78px; }
-  .acc-table th:nth-child(4) { width:88px; }
-  .acc-table td { border:1px solid #bbb; padding:3px 5px; vertical-align:middle; height:21px; }
-  .acc-table td input { width:100%; border:none; outline:none; font-size:11px; font-family:'Source Sans 3',sans-serif; background:transparent; color:var(--dark); padding:1px 2px; text-align:center; }
-  .acc-table td:nth-child(2) input { text-align:left; }
-  .acc-table td input:focus { background:#f0f6ff; border-radius:2px; }
-  .acc-table .sr-cell { text-align:center; font-weight:700; font-size:10.5px; color:var(--mid); }
+  /* TABLE */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:7px}
+  .acc-table{width:100%;border-collapse:collapse;font-size:10.5px}
+  .acc-table th{background:var(--black);color:#fff;font-weight:700;text-align:center;padding:4px 5px;border:1px solid var(--black);font-size:10.5px}
+  .acc-table th:first-child{width:44px}
+  .acc-table th:nth-child(3){width:72px}
+  .acc-table th:nth-child(4){width:82px}
+  .acc-table td{border:1px solid #bbb;padding:2px 4px;vertical-align:middle;height:18px}
+  .acc-table td input{width:100%;border:none;outline:none;font-size:10.5px;font-family:'Source Sans 3',sans-serif;background:transparent;color:var(--dark);padding:1px 2px;text-align:center}
+  .acc-table td:nth-child(2) input{text-align:left}
+  .acc-table td input:focus{background:#f0f6ff;border-radius:2px}
+  .acc-table .sr-cell{text-align:center;font-weight:700;font-size:10px;color:var(--mid)}
 
   /* BOTTOM */
-  .bottom-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-bottom:8px; }
-  .dates-col { padding-right:12px; }
-  .dates-col .date-row { display:flex; align-items:flex-end; gap:5px; border-bottom:1.2px solid var(--border); padding-bottom:3px; margin-bottom:5px; }
-  .dates-col .date-row .f-label { font-size:10px; }
-  .checklist-col { border-left:1.5px solid var(--border); padding-left:12px; }
-  .check-row { display:flex; align-items:center; justify-content:space-between; padding:3px 0; border-bottom:1px solid #eee; font-size:10px; color:var(--dark); gap:8px; }
-  .check-row:last-child { border-bottom:none; }
-  .check-row span { flex:1; }
-  .check-box { width:16px; height:16px; border:1.5px solid var(--black); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; user-select:none; position:relative; }
-  .check-box svg { display:none; width:11px; height:11px; }
-  .check-box.checked svg { display:block; }
+  .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:6px}
+  .dates-col{padding-right:10px}
+  .dates-col .date-row{display:flex;align-items:flex-end;gap:5px;border-bottom:1.2px solid var(--border);padding-bottom:2px;margin-bottom:4px}
+  .dates-col .date-row .f-label{font-size:9.5px}
+  .checklist-col{border-left:1.5px solid var(--border);padding-left:10px}
+  .check-row{display:flex;align-items:center;justify-content:space-between;padding:2px 0;border-bottom:1px solid #eee;font-size:9.5px;color:var(--dark);gap:8px}
+  .check-row:last-child{border-bottom:none}
+  .check-row span{flex:1}
+  .check-box{width:15px;height:15px;border:1.5px solid var(--black);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;user-select:none}
+  .check-box svg{display:none;width:10px;height:10px}
+  .check-box.checked svg{display:block}
 
   /* REMARKS */
-  .remarks-row { display:flex; align-items:flex-start; gap:6px; border-bottom:1.2px solid var(--border); padding-bottom:4px; margin-bottom:8px; margin-top:4px; }
-  .remarks-row .f-label { padding-top:2px; }
-  .remarks-row textarea { flex:1; border:none; outline:none; font-size:11px; font-family:'Source Sans 3',sans-serif; background:transparent; color:var(--dark); resize:none; min-height:26px; padding:1px 3px; border-bottom:1.2px solid var(--border); }
-  .remarks-row textarea:focus { background:#f0f6ff; }
+  .remarks-row{display:flex;align-items:flex-start;gap:6px;border-bottom:1.2px solid var(--border);padding-bottom:3px;margin-bottom:6px;margin-top:3px}
+  .remarks-row .f-label{padding-top:2px}
+  .remarks-row textarea{flex:1;border:none;outline:none;font-size:10.5px;font-family:'Source Sans 3',sans-serif;background:transparent;color:var(--dark);resize:none;min-height:22px;padding:1px 3px;border-bottom:1.2px solid var(--border)}
+  .remarks-row textarea:focus{background:#f0f6ff}
 
   /* SIGNATURE */
-  .sig-grid { display:grid; grid-template-columns:1fr 1fr; border:1.5px solid var(--black); }
-  .sig-cell { padding:7px 10px; border-right:1.5px solid var(--black); min-height:85px; }
-  .sig-cell:last-child { border-right:none; }
-  .sig-cell-title { font-size:9px; font-weight:700; color:var(--black); margin-bottom:3px; text-transform:uppercase; letter-spacing:0.3px; }
-  .sig-cell-sub { font-size:7.5px; color:var(--mid); margin-bottom:5px; font-style:italic; }
-  .sig-cell textarea { width:100%; border:none; outline:none; font-size:10.5px; font-family:'Source Sans 3',sans-serif; background:transparent; color:var(--dark); resize:none; min-height:38px; border-bottom:1px solid var(--border); padding:2px 3px; }
-  .sig-cell textarea:focus { background:#f0f6ff; }
-  .sig-cell .sig-label-sm { font-size:8.5px; font-weight:700; color:var(--black); margin-top:5px; margin-bottom:2px; }
-  .sig-cell .f-input-line { width:100%; border:none; border-bottom:1px solid var(--border); outline:none; font-size:10.5px; font-family:'Source Sans 3',sans-serif; background:transparent; padding:2px 3px; color:var(--dark); display:block; margin-bottom:3px; }
-  .sig-cell .f-input-line:focus { background:#f0f6ff; }
+  .sig-grid{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--black)}
+  .sig-cell{padding:6px 9px;border-right:1.5px solid var(--black);min-height:78px}
+  .sig-cell:last-child{border-right:none}
+  .sig-cell-title{font-size:8.5px;font-weight:700;color:var(--black);margin-bottom:2px;text-transform:uppercase;letter-spacing:.3px}
+  .sig-cell-sub{font-size:7px;color:var(--mid);margin-bottom:4px;font-style:italic}
+  .sig-cell textarea{width:100%;border:none;outline:none;font-size:10px;font-family:'Source Sans 3',sans-serif;background:transparent;color:var(--dark);resize:none;min-height:30px;border-bottom:1px solid var(--border);padding:2px 3px}
+  .sig-cell textarea:focus{background:#f0f6ff}
+  .sig-cell .sig-label-sm{font-size:8px;font-weight:700;color:var(--black);margin-top:4px;margin-bottom:1px}
+  .sig-cell .f-input-line{width:100%;border:none;border-bottom:1px solid var(--border);outline:none;font-size:10px;font-family:'Source Sans 3',sans-serif;background:transparent;padding:2px 3px;color:var(--dark);display:block;margin-bottom:2px}
+  .sig-cell .f-input-line:focus{background:#f0f6ff}
 
   /* DOWNLOAD */
-  .download-section { width:210mm; margin:0 auto 30px auto; text-align:center; padding:16px 0; }
-  .download-btn { background:var(--black); color:#fff; border:none; padding:12px 44px; font-size:14px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; font-family:'Source Sans 3',sans-serif; box-shadow:0 3px 12px rgba(0,0,0,0.18); transition:background 0.2s; }
-  .download-btn:hover { background:#222; }
+  .download-section{width:210mm;margin:0 auto 30px auto;text-align:center;padding:16px 0}
+  .download-btn{background:var(--black);color:#fff;border:none;padding:12px 44px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'Source Sans 3',sans-serif;box-shadow:0 3px 12px rgba(0,0,0,.18);transition:background .2s}
+  .download-btn:hover{background:#222}
 
-  /* ===================== MOBILE RESPONSIVE ===================== */
-  @media (max-width: 800px) {
-    body { font-size:13px; background:#f0f0f0; }
-
-    .page {
-      width:100%;
-      min-height:auto;
-      margin:0;
-      padding:14px 12px 16px 12px;
-      box-shadow:none;
-      border-radius:0;
-    }
-
-    .download-section {
-      width:100%;
-      padding:12px 16px 24px;
-    }
-
-    .download-btn {
-      width:100%;
-      padding:14px;
-      font-size:15px;
-    }
-
-    /* Header mobile */
-    .brand-name { font-size:15px; letter-spacing:2px; }
-    .company-name { font-size:14px; }
-    .logo-icon { width:36px; height:36px; }
-    .address-line, .aus-tag, .collab-text { font-size:7.5px; }
-
-    /* Title */
-    .report-title h2 { font-size:12px; letter-spacing:1px; padding:4px 14px; }
-
-    /* Purpose row */
-    .purpose-row { flex-direction:column; align-items:flex-start; gap:8px; padding:8px 10px; }
-    .pv-label { font-size:11px; }
-    .purpose-options { gap:6px; }
-    .purpose-chip { font-size:10px; padding:4px 10px; }
-    .purpose-other-input { width:140px; font-size:11px; }
-
-    /* Field rows - stack on mobile */
-    .field-row.two-col {
-      grid-template-columns: 1fr;
-      gap:6px;
-    }
-    .f-label { font-size:10px; white-space:normal; }
-    .f-input { font-size:12px; }
-    .field-pair { flex-wrap:wrap; gap:3px; }
-
-    /* Accessories table - make scrollable */
-    .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; margin-bottom:10px; }
-    .acc-table { min-width:400px; margin-bottom:0; font-size:10px; }
-    .acc-table th { font-size:10px; padding:4px; }
-    .acc-table td input { font-size:10px; }
-
-    /* Bottom grid - stack */
-    .bottom-grid { grid-template-columns:1fr; gap:10px; }
-    .dates-col { padding-right:0; border-bottom:1.5px solid var(--border); padding-bottom:10px; }
-    .checklist-col { border-left:none; padding-left:0; border-top:1.5px solid var(--border); padding-top:10px; }
-    .check-row { font-size:11px; padding:5px 0; }
-    .check-box { width:20px; height:20px; }
-    .check-box svg { width:13px; height:13px; }
-
-    /* Signature grid - stack */
-    .sig-grid { grid-template-columns:1fr; }
-    .sig-cell { border-right:none; border-bottom:1.5px solid var(--black); }
-    .sig-cell:last-child { border-bottom:none; }
-    .sig-cell textarea { min-height:50px; }
-
-    /* Remarks */
-    .remarks-row textarea { min-height:50px; }
-    .remarks-row { flex-direction:column; gap:4px; }
-
-    .intro-text { font-size:10px; }
+  @media(max-width:800px){
+    body{background:#f0f0f0}
+    .page{width:100%;min-height:auto;margin:0;padding:14px 12px 16px;box-shadow:none}
+    .download-section{width:100%;padding:12px 16px 24px}
+    .download-btn{width:100%;padding:14px;font-size:15px}
+    .logo-wrap{width:80px}
+    .company-name{font-size:13px}
+    .header-inner{flex-direction:column;text-align:center}
+    .report-title h2{font-size:11px;padding:3px 12px}
+    .purpose-row{flex-direction:column;align-items:flex-start;gap:6px}
+    .field-row.two-col{grid-template-columns:1fr;gap:5px}
+    .acc-table{min-width:380px}
+    .bottom-grid{grid-template-columns:1fr;gap:8px}
+    .dates-col{padding-right:0;border-bottom:1.5px solid var(--border);padding-bottom:8px}
+    .checklist-col{border-left:none;padding-left:0;border-top:1.5px solid var(--border);padding-top:8px}
+    .sig-grid{grid-template-columns:1fr}
+    .sig-cell{border-right:none;border-bottom:1.5px solid var(--black)}
+    .sig-cell:last-child{border-bottom:none}
   }
-
-  @media (max-width: 480px) {
-    .page { padding:10px 10px 14px; }
-    .brand-name { font-size:13px; letter-spacing:1px; }
-    .company-name { font-size:12px; }
-    .report-title h2 { font-size:11px; padding:3px 10px; }
-    .acc-table { min-width:360px; font-size:9.5px; }
-    .purpose-chip { font-size:9.5px; padding:3px 8px; }
-  }
-
-  @media print {
-    body { background:#fff; }
-    .page { margin:0; box-shadow:none; padding:10mm; width:210mm; }
-    .download-section { display:none; }
+  @media print{
+    body{background:#fff}
+    .page{margin:0;box-shadow:none;padding:8mm 10mm;width:210mm}
+    .download-section{display:none}
   }
 </style>
 </head>
 <body>
-
 <div class="page" id="wcr-page">
 
   <!-- HEADER -->
   <div class="header">
-    <div class="logo-row">
-      <svg class="logo-icon" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="35" cy="44" rx="26" ry="16" fill="#ddd" stroke="#000" stroke-width="2"/>
-        <ellipse cx="35" cy="44" rx="26" ry="6" fill="#bbb" stroke="#000" stroke-width="1.5"/>
-        <path d="M9 44 Q7 28 20 21 Q35 8 50 21 Q62 28 61 44" fill="#eee" stroke="#000" stroke-width="2"/>
-        <rect x="5" y="38" width="60" height="4" rx="2" fill="#ccc" stroke="#000" stroke-width="1"/>
-      </svg>
-      <div class="brand-block">
-        <div class="brand-top">
-          <span class="brand-dash"></span>
-          <span class="brand-name">SHUBHAM</span>
-          <span class="brand-dash"></span>
-        </div>
-        <div class="brand-sub">TANKS AND LINERS</div>
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img src="data:image/jpeg;base64,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" alt="Shubham Tanks and Liners">
+      </div>
+      <div class="header-center">
+        <div class="company-name">Shubham Tanks and Liners Pvt. Ltd.</div>
+        <div class="collab-text">(In Technical Collaboration with Kingspan Water &amp; Energy, Australia)</div>
+        <div class="address-line">127/128, Lodha Supremus – II, North Wing, Road No. 22, Wagle Industrial Estate, Thane – 400 604, Maharashtra, India</div>
+        <div class="address-line">T: +91-22-4974 8989 / +91-8080198211 <span>&#x25CF;</span> E: info@shubhamtanks.com <span>&#x25CF;</span> W: www.shubhamtanks.com</div>
+        <div class="aus-tag">AUSTRALIAN TECHNOLOGY FOR RELIABLE WATER STORAGE SOLUTION IN INDIA</div>
       </div>
     </div>
-    <div class="company-name">Shubham Tanks and Liners Pvt. Ltd.</div>
-    <div class="collab-text">(In Technical Collaboration with Kingspan Water &amp; Energy, Australia)</div>
-    <div class="address-line">127/128, Lodha Supremus – II, North Wing, Road No. 22, Wagle Industrial Estate, Thane – 400 604, Maharashtra, India</div>
-    <div class="address-line">T: +91-22-4974 8989 / +91-8080198211 <span>&#x25CF;</span> E: info@shubhamtanks.com <span>&#x25CF;</span> W: www.shubhamtanks.com</div>
-    <div class="aus-tag">AUSTRALIAN TECHNOLOGY FOR RELIABLE WATER STORAGE SOLUTION IN INDIA</div>
   </div>
 
   <!-- TITLE -->
   <div class="report-title"><h2>Work Completion Report</h2></div>
 
-  <!-- PURPOSE OF VISIT -->
+  <!-- PURPOSE -->
   <div class="purpose-row">
     <span class="pv-label">Purpose of Visit :</span>
     <div class="purpose-options">
-      <label class="purpose-opt">
-        <input type="radio" name="purpose" value="Installation">
-        <span class="purpose-chip">Installation</span>
-      </label>
-      <label class="purpose-opt">
-        <input type="radio" name="purpose" value="Leakage">
-        <span class="purpose-chip">Leakage</span>
-      </label>
-      <label class="purpose-opt">
-        <input type="radio" name="purpose" value="Reinstallation">
-        <span class="purpose-chip">Reinstallation</span>
-      </label>
-      <label class="purpose-opt">
-        <input type="radio" name="purpose" value="Service / Maintenance">
-        <span class="purpose-chip">Service / Maintenance</span>
-      </label>
-      <label class="purpose-opt">
-        <input type="radio" name="purpose" value="Inspection">
-        <span class="purpose-chip">Inspection</span>
-      </label>
-      <label class="purpose-opt">
-        <input type="radio" name="purpose" id="pur_other_radio" value="Other">
-        <span class="purpose-chip">+ Other</span>
-      </label>
+      <label class="purpose-opt"><input type="radio" name="purpose" value="Installation"><span class="purpose-chip">Installation</span></label>
+      <label class="purpose-opt"><input type="radio" name="purpose" value="Leakage"><span class="purpose-chip">Leakage</span></label>
+      <label class="purpose-opt"><input type="radio" name="purpose" value="Reinstallation"><span class="purpose-chip">Reinstallation</span></label>
+      <label class="purpose-opt"><input type="radio" name="purpose" value="Service / Maintenance"><span class="purpose-chip">Service / Maintenance</span></label>
+      <label class="purpose-opt"><input type="radio" name="purpose" value="Inspection"><span class="purpose-chip">Inspection</span></label>
+      <label class="purpose-opt"><input type="radio" name="purpose" id="pur_other_radio" value="Other"><span class="purpose-chip">+ Other</span></label>
     </div>
     <input type="text" id="pur_other_text" class="purpose-other-input" placeholder="Specify other...">
   </div>
 
-  <!-- FORM FIELDS -->
+  <!-- FIELDS -->
   <div class="field-grid">
     <div class="field-row two-col">
-      <div class="field-pair">
-        <span class="f-label">SERVICE REPORT NO. :</span>
-        <input type="text" class="f-input" id="srv_no" placeholder="">
-      </div>
-      <div class="field-pair">
-        <span class="f-label">DATE :</span>
-        <input type="date" class="f-input" id="report_date">
-      </div>
+      <div class="field-pair"><span class="f-label">SERVICE REPORT NO. :</span><input type="text" class="f-input" id="srv_no"></div>
+      <div class="field-pair"><span class="f-label">DATE :</span><input type="date" class="f-input" id="report_date"></div>
     </div>
     <div class="field-row two-col">
-      <div class="field-pair">
-        <span class="f-label">CUSTOMER ORDER NO. :</span>
-        <input type="text" class="f-input" id="cust_order_no">
-      </div>
-      <div class="field-pair">
-        <span class="f-label">CUSTOMER ORDER DATE :</span>
-        <input type="date" class="f-input" id="cust_order_date">
-      </div>
+      <div class="field-pair"><span class="f-label">CUSTOMER ORDER NO. :</span><input type="text" class="f-input" id="cust_order_no"></div>
+      <div class="field-pair"><span class="f-label">CUSTOMER ORDER DATE :</span><input type="date" class="f-input" id="cust_order_date"></div>
     </div>
-    <div class="field-row">
-      <span class="f-label">CUSTOMER NAME :</span>
-      <input type="text" class="f-input" id="cust_name">
-    </div>
-    <div class="field-row">
-      <span class="f-label">CUSTOMER ADDRESS :</span>
-      <input type="text" class="f-input" id="cust_address">
-    </div>
-    <div class="field-row two-col" style="margin-bottom:8px;">
-      <div class="field-pair">
-        <span class="f-label">TANKS MODEL :</span>
-        <input type="text" class="f-input" id="tank_model">
-      </div>
-      <div class="field-pair">
-        <span class="f-label">CAPACITY (Ltrs.) :</span>
-        <input type="text" class="f-input" id="capacity">
-      </div>
+    <div class="field-row"><span class="f-label">CUSTOMER NAME :</span><input type="text" class="f-input" id="cust_name"></div>
+    <div class="field-row"><span class="f-label">CUSTOMER ADDRESS :</span><input type="text" class="f-input" id="cust_address"></div>
+    <div class="field-row two-col" style="margin-bottom:6px">
+      <div class="field-pair"><span class="f-label">TANKS MODEL :</span><input type="text" class="f-input" id="tank_model"></div>
+      <div class="field-pair"><span class="f-label">CAPACITY (Ltrs.) :</span><input type="text" class="f-input" id="capacity"></div>
     </div>
   </div>
 
   <div class="intro-text">The above tank has been successfully erected and commissioned by us and fitted with the following attachments and accessories:</div>
 
-  <!-- ACCESSORIES TABLE -->
+  <!-- TABLE -->
   <div class="table-wrap">
     <table class="acc-table">
-      <thead>
-        <tr>
-          <th>Sr. No.</th>
-          <th>Particulars</th>
-          <th>Quantity</th>
-          <th>Location</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Sr. No.</th><th>Particulars</th><th>Quantity</th><th>Location</th></tr></thead>
       <tbody id="acc-tbody"></tbody>
     </table>
   </div>
 
-  <!-- BOTTOM: Dates + Checklist -->
+  <!-- DATES + CHECKLIST -->
   <div class="bottom-grid">
     <div class="dates-col">
-      <div class="date-row">
-        <span class="f-label">Date of Completion of Installation :</span>
-        <input type="date" class="f-input" id="date_completion" style="max-width:130px;">
-      </div>
-      <div class="date-row">
-        <span class="f-label">Date of Handing Over :</span>
-        <input type="date" class="f-input" id="date_handing" style="max-width:130px;">
-      </div>
+      <div class="date-row"><span class="f-label">Date of Completion of Installation :</span><input type="date" class="f-input" id="date_completion" style="max-width:120px"></div>
+      <div class="date-row"><span class="f-label">Date of Handing Over :</span><input type="date" class="f-input" id="date_handing" style="max-width:120px"></div>
     </div>
     <div class="checklist-col">
-      <div class="check-row">
-        <span>The tank has been installed successfully</span>
-        <div class="check-box" onclick="toggleCheck(this)" title="Click to check">
-          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </div>
-      <div class="check-row">
-        <span>All tanks accessories are fitted as per customer requirement</span>
-        <div class="check-box" onclick="toggleCheck(this)" title="Click to check">
-          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </div>
-      <div class="check-row">
-        <span>No issue found</span>
-        <div class="check-box" onclick="toggleCheck(this)" title="Click to check">
-          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </div>
-      <div class="check-row">
-        <span>Commissioning done</span>
-        <div class="check-box" onclick="toggleCheck(this)" title="Click to check">
-          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </div>
+      <div class="check-row"><span>The tank has been installed successfully</span><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      <div class="check-row"><span>All tanks accessories are fitted as per customer requirement</span><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      <div class="check-row"><span>No issue found</span><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      <div class="check-row"><span>Commissioning done</span><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9.5 10.5,2.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
     </div>
   </div>
 
   <!-- CUSTOMER REMARKS -->
   <div class="remarks-row">
-    <span class="f-label" style="white-space:nowrap;">Customer Remarks :</span>
+    <span class="f-label" style="white-space:nowrap">Customer Remarks :</span>
     <textarea id="cust_remarks" rows="2" placeholder="Enter customer remarks..."></textarea>
   </div>
 
-  <!-- SIGNATURE SECTION -->
+  <!-- SIGNATURE -->
   <div class="sig-grid">
     <div class="sig-cell">
       <div class="sig-cell-title">For SHUBHAM TANKS AND LINERS PVT. LTD.</div>
       <div class="sig-cell-sub">(In Technical Collaboration with Kingspan Water &amp; Energy, Australia)</div>
       <div class="sig-label-sm">Installation in charge Remarks :</div>
-      <textarea id="install_remarks" rows="3" placeholder="Enter remarks..."></textarea>
-      <div class="sig-label-sm" style="margin-top:6px;">Signature</div>
+      <textarea id="install_remarks" rows="2" placeholder="Enter remarks..."></textarea>
+      <div class="sig-label-sm" style="margin-top:5px">Signature</div>
       <input type="text" class="f-input-line" id="signature_incharge" placeholder="">
       <div class="sig-label-sm">Name of Installation in charge</div>
       <input type="text" class="f-input-line" id="name_incharge" placeholder="">
@@ -387,11 +224,11 @@
     <div class="sig-cell">
       <div class="sig-cell-title">Customer Signature with Rubber Seal</div>
       <textarea id="cust_sig_note" rows="2" placeholder="Remarks / Seal note..."></textarea>
-      <div style="height:8px;"></div>
-      <div style="border-top:1.5px solid var(--black); padding-top:7px;">
+      <div style="height:5px"></div>
+      <div style="border-top:1.5px solid var(--black);padding-top:5px">
         <div class="sig-cell-title">Name of Customer's Authorised Person :</div>
         <input type="text" class="f-input-line" id="auth_person" placeholder="">
-        <div class="sig-label-sm" style="margin-top:5px;">Designation :</div>
+        <div class="sig-label-sm" style="margin-top:4px">Designation :</div>
         <input type="text" class="f-input-line" id="designation" placeholder="">
       </div>
     </div>
@@ -405,330 +242,225 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-// Build table rows
+// Table rows
 (function(){
-  const tbody = document.getElementById('acc-tbody');
+  const tb=document.getElementById('acc-tbody');
   for(let i=1;i<=10;i++){
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td class="sr-cell">${i}</td><td><input type="text" id="p${i}"></td><td><input type="text" id="q${i}"></td><td><input type="text" id="l${i}"></td>`;
-    tbody.appendChild(tr);
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td class="sr-cell">${i}</td><td><input type="text" id="p${i}"></td><td><input type="text" id="q${i}"></td><td><input type="text" id="l${i}"></td>`;
+    tb.appendChild(tr);
   }
 })();
 
-function toggleCheck(el){ el.classList.toggle('checked'); }
+function toggleCheck(el){el.classList.toggle('checked')}
 
-// Show other input when "Other" selected
 document.querySelectorAll('input[name="purpose"]').forEach(r=>{
   r.addEventListener('change',()=>{
-    const oi = document.getElementById('pur_other_text');
-    if(r.value==='Other' && r.checked) oi.classList.add('visible');
-    else if(r.value!=='Other') oi.classList.remove('visible');
+    const oi=document.getElementById('pur_other_text');
+    if(r.value==='Other'&&r.checked)oi.classList.add('visible');
+    else if(r.value!=='Other')oi.classList.remove('visible');
   });
 });
 
-function g(id){ const el=document.getElementById(id); return el?(el.value||''):''; }
-function isChk(el){ return el&&el.classList.contains('checked'); }
-
+function g(id){const el=document.getElementById(id);return el?(el.value||''):''}
 function getPurpose(){
-  const sel = document.querySelector('input[name="purpose"]:checked');
-  if(!sel) return '';
-  if(sel.value==='Other') return 'Other: '+(g('pur_other_text')||'');
+  const sel=document.querySelector('input[name="purpose"]:checked');
+  if(!sel)return '';
+  if(sel.value==='Other')return 'Other: '+(g('pur_other_text')||'');
   return sel.value;
 }
-
-function formatDate(d){
-  if(!d) return '';
-  // d is yyyy-mm-dd
-  const p = d.split('-');
-  if(p.length===3) return p[2]+'/'+p[1]+'/'+p[0];
-  return d;
+function fd(d){
+  if(!d)return '';
+  const p=d.split('-');
+  return p.length===3?p[2]+'/'+p[1]+'/'+p[0]:d;
 }
 
+// Embedded logo for PDF
+const LOGO_DATA='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';
+
 function downloadPDF(){
-  const {jsPDF} = window.jspdf;
-  const doc = new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-  const PW=210, PH=297, ML=12, MR=12, MT=10;
-  const CW=PW-ML-MR;
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+
+  /* ── layout constants ── */
+  const PW=210,PH=297,ML=11,MT=7,CW=188; // left margin 11, right margin 11
   let y=MT;
 
-  const BK=[0,0,0], WH=[255,255,255], GR=[100,100,100], LG=[200,200,200], BL=[10,10,120], DGRAY=[80,80,80];
+  const BK=[0,0,0],WH=[255,255,255],LG=[205,205,205],BL=[20,20,140],DG=[85,85,85],MG=[150,150,150],GR=[110,110,110];
 
-  function sf(style,size,color){
-    doc.setFont('helvetica', style||'normal');
-    doc.setFontSize(size||9);
-    doc.setTextColor(...(color||BK));
+  function sf(st,sz,col){doc.setFont('helvetica',st||'normal');doc.setFontSize(sz||8);doc.setTextColor(...(col||BK))}
+  function ln(x1,y1,x2,y2,w,col){doc.setDrawColor(...(col||LG));doc.setLineWidth(w||0.2);doc.line(x1,y1,x2,y2)}
+  function rect(x,ry,w,h,style,fill,stroke){
+    if(fill)doc.setFillColor(...fill);
+    if(stroke)doc.setDrawColor(...stroke); else doc.setDrawColor(...BK);
+    doc.setLineWidth(0.4);
+    doc.rect(x,ry,w,h,style||'S');
   }
-  function ck(n){ if(y+n>PH-12){ doc.addPage(); y=MT; } }
 
-  // ===== HEADER =====
-  doc.setDrawColor(...BK);
-  doc.setLineWidth(0.7);
-  doc.line(ML, y, ML+CW, y);
-  y += 5;
+  /* ══════════ HEADER ══════════ */
+  // Logo – left side
+  try{doc.addImage('data:image/jpeg;base64,'+LOGO_DATA,'JPEG',ML,y,26,13)}catch(e){}
 
-  sf('bold',16,BK);
-  doc.text('SHUBHAM TANKS AND LINERS PVT. LTD.', ML+CW/2, y, {align:'center'});
-  y += 5.5;
+  // Company text – centred in remaining space
+  const lw=30, tx=ML+lw, tcw=CW-lw;
+  sf('bold',13,BK); doc.text('SHUBHAM TANKS AND LINERS PVT. LTD.',tx+tcw/2,y+5,{align:'center'});
+  sf('normal',7,DG);  doc.text('(In Technical Collaboration with Kingspan Water & Energy, Australia)',tx+tcw/2,y+9,{align:'center'});
+  sf('normal',6.5,BK);doc.text('127/128, Lodha Supremus - II, North Wing, Road No. 22, Wagle Industrial Estate, Thane - 400 604, Maharashtra, India',tx+tcw/2,y+12.5,{align:'center'});
+  doc.text('T: +91-22-4974 8989 / +91-8080198211   |   E: info@shubhamtanks.com   |   W: www.shubhamtanks.com',tx+tcw/2,y+16,{align:'center'});
+  y+=19;
+  ln(ML,y,ML+CW,y,0.6,BK); y+=2.5;
+  sf('bold',6.5,DG); doc.text('AUSTRALIAN TECHNOLOGY FOR RELIABLE WATER STORAGE SOLUTION IN INDIA',ML+CW/2,y,{align:'center'});
+  y+=2.5; ln(ML,y,ML+CW,y,0.6,BK); y+=5;
 
-  sf('normal',8,DGRAY);
-  doc.text('(In Technical Collaboration with Kingspan Water & Energy, Australia)', ML+CW/2, y, {align:'center'});
-  y += 4.5;
+  /* ══════════ TITLE ══════════ */
+  sf('bold',12,BK);
+  const ttl='WORK COMPLETION REPORT', tw=doc.getTextWidth(ttl);
+  rect(ML+CW/2-tw/2-5,y-1,tw+10,8,'S',null,BK);
+  doc.text(ttl,ML+CW/2,y+5,{align:'center'}); y+=12;
 
-  sf('normal',7,BK);
-  doc.text('127/128, Lodha Supremus - II, North Wing, Road No. 22, Wagle Industrial Estate, Thane - 400 604, Maharashtra, India', ML+CW/2, y, {align:'center'});
-  y += 4;
-
-  sf('normal',7,BK);
-  doc.text('T: +91-22-4974 8989 / +91-8080198211   |   E: info@shubhamtanks.com   |   W: www.shubhamtanks.com', ML+CW/2, y, {align:'center'});
-  y += 5;
-
-  doc.setDrawColor(...BK);
-  doc.setLineWidth(0.7);
-  doc.line(ML, y, ML+CW, y);
-  y += 3;
-
-  sf('bold',7,DGRAY);
-  doc.text('AUSTRALIAN TECHNOLOGY FOR RELIABLE WATER STORAGE SOLUTION IN INDIA', ML+CW/2, y, {align:'center'});
-  y += 3;
-
-  doc.setDrawColor(...BK);
-  doc.setLineWidth(0.7);
-  doc.line(ML, y, ML+CW, y);
-  y += 7;
-
-  // ===== TITLE =====
-  sf('bold',13,BK);
-  const ttl='WORK COMPLETION REPORT';
-  const tw=doc.getTextWidth(ttl);
-  doc.setDrawColor(...BK);
-  doc.setLineWidth(0.6);
-  doc.rect(ML+CW/2-tw/2-6, y-1, tw+12, 9);
-  doc.text(ttl, ML+CW/2, y+5.5, {align:'center'});
-  y += 14;
-
-  // ===== PURPOSE OF VISIT =====
-  ck(12);
-  doc.setFillColor(245,245,245);
-  doc.setDrawColor(...BK);
-  doc.setLineWidth(0.6);
-  doc.rect(ML, y, CW, 11, 'FD');
-  sf('bold',8.5,BK);
-  doc.text('PURPOSE OF VISIT :', ML+3, y+7.5);
-  const pvW = doc.getTextWidth('PURPOSE OF VISIT :');
-  const purpose = getPurpose();
-  if(purpose){
-    const chipX = ML+pvW+8;
-    const chipW = doc.getTextWidth(purpose)+10;
-    doc.setFillColor(...BK);
-    doc.rect(chipX-5, y+2.5, chipW, 6.5, 'F');
-    sf('bold',8.5,WH);
-    doc.text(purpose, chipX, y+7.5);
+  /* ══════════ PURPOSE ══════════ */
+  rect(ML,y,CW,9,'F',[245,245,245],BK); doc.setLineWidth(0.4); doc.rect(ML,y,CW,9);
+  sf('bold',8,BK); doc.text('PURPOSE OF VISIT :',ML+3,y+6.2);
+  const pvw=doc.getTextWidth('PURPOSE OF VISIT :');
+  const pur=getPurpose();
+  if(pur){
+    const cx=ML+pvw+8,cw=doc.getTextWidth(pur)+8;
+    rect(cx-4,y+2,cw,5.5,'F',BK,BK);
+    sf('bold',8,WH); doc.text(pur,cx,y+6.2);
   } else {
-    sf('normal',8.5,GR);
-    doc.text('(Not selected)', ML+pvW+8, y+7.5);
+    sf('normal',8,GR); doc.text('(Not selected)',ML+pvw+8,y+6.2);
   }
-  y += 15;
+  y+=13;
 
-  // ===== FIELD HELPERS =====
-  function fieldRow(lbl, val, rH=8){
-    ck(rH);
-    sf('bold',8,BK);
-    doc.text(lbl, ML, y+rH-1.5);
-    sf('normal',8.5,BL);
-    const maxW = CW - doc.getTextWidth(lbl) - 4;
-    const lines = doc.splitTextToSize(val, maxW);
-    doc.text(lines[0]||'', ML+doc.getTextWidth(lbl)+3, y+rH-1.5);
-    doc.setDrawColor(...LG);
-    doc.setLineWidth(0.25);
-    doc.line(ML, y+rH, ML+CW, y+rH);
-    y += rH;
+  /* ══════════ FIELD HELPERS ══════════ */
+  function fRow(lbl,val,rh){
+    rh=rh||7;
+    sf('bold',7.5,BK); doc.text(lbl,ML,y+rh-1.5);
+    sf('normal',8,BL);
+    const mv=CW-doc.getTextWidth(lbl)-4;
+    doc.text((doc.splitTextToSize(val,mv)[0]||''),ML+doc.getTextWidth(lbl)+2.5,y+rh-1.5);
+    ln(ML,y+rh,ML+CW,y+rh,0.2); y+=rh;
   }
-  function twoRow(l1,v1,l2,v2,rH=8){
-    ck(rH);
-    const half=CW/2;
-    sf('bold',8,BK);
-    doc.text(l1, ML, y+rH-1.5);
-    sf('normal',8.5,BL);
-    doc.text(v1, ML+doc.getTextWidth(l1)+3, y+rH-1.5);
-    const c2=ML+half+2;
-    sf('bold',8,BK);
-    doc.text(l2, c2, y+rH-1.5);
-    sf('normal',8.5,BL);
-    doc.text(v2, c2+doc.getTextWidth(l2)+3, y+rH-1.5);
-    doc.setDrawColor(...LG);
-    doc.setLineWidth(0.25);
-    doc.line(ML, y+rH, ML+CW, y+rH);
-    y += rH;
+  function tRow(l1,v1,l2,v2,rh){
+    rh=rh||7; const half=CW/2;
+    sf('bold',7.5,BK); doc.text(l1,ML,y+rh-1.5);
+    sf('normal',8,BL);
+    doc.text((doc.splitTextToSize(v1,half-doc.getTextWidth(l1)-4)[0]||''),ML+doc.getTextWidth(l1)+2.5,y+rh-1.5);
+    const x2=ML+half+2;
+    sf('bold',7.5,BK); doc.text(l2,x2,y+rh-1.5);
+    sf('normal',8,BL);
+    doc.text((doc.splitTextToSize(v2,half-doc.getTextWidth(l2)-4)[0]||''),x2+doc.getTextWidth(l2)+2.5,y+rh-1.5);
+    ln(ML,y+rh,ML+CW,y+rh,0.2); y+=rh;
   }
 
-  twoRow('SERVICE REPORT NO. :', g('srv_no'), 'DATE :', formatDate(g('report_date')));
-  twoRow('CUSTOMER ORDER NO. :', g('cust_order_no'), 'CUSTOMER ORDER DATE :', formatDate(g('cust_order_date')));
-  fieldRow('CUSTOMER NAME :', g('cust_name'));
-  fieldRow('CUSTOMER ADDRESS :', g('cust_address'), 9);
-  twoRow('TANKS MODEL :', g('tank_model'), 'CAPACITY (Ltrs.) :', g('capacity'));
-  y += 3;
-
-  sf('italic',7.5,BK);
-  doc.text('The above tank has been successfully erected and commissioned by us and fitted with the following attachments and accessories:', ML, y);
-  y += 6;
-
-  // ===== ACCESSORIES TABLE =====
-  ck(10);
-  const cW=[13, CW-13-27-31, 27, 31];
-  const tHdr=['Sr. No.','Particulars','Quantity','Location'];
-  const rowH=6.5;
-
-  // Header
-  doc.setFillColor(...BK);
-  doc.rect(ML, y, CW, rowH+1, 'F');
-  let cx=ML;
-  tHdr.forEach((h,i)=>{
-    sf('bold',8,WH);
-    doc.text(h, cx+cW[i]/2, y+rowH/2+1.5, {align:'center'});
-    cx+=cW[i];
-  });
-  y+=rowH+1;
-
-  for(let i=1;i<=10;i++){
-    ck(rowH);
-    doc.setFillColor(i%2===0?246:255, i%2===0?246:255, i%2===0?246:255);
-    doc.rect(ML, y, CW, rowH, 'F');
-    doc.setDrawColor(...LG);
-    doc.setLineWidth(0.25);
-    doc.rect(ML, y, CW, rowH);
-    let rx=ML;
-    [String(i), g('p'+i), g('q'+i), g('l'+i)].forEach((v,j)=>{
-      if(j>0){ doc.setDrawColor(...LG); doc.line(rx, y, rx, y+rowH); }
-      sf('normal', j===0?8:8.5, j===0?GR:BK);
-      doc.text(v, rx+cW[j]/2, y+rowH/2+1.5, {align:'center'});
-      rx+=cW[j];
-    });
-    y+=rowH;
-  }
+  tRow('SERVICE REPORT NO. :',g('srv_no'),'DATE :',fd(g('report_date')));
+  tRow('CUSTOMER ORDER NO. :',g('cust_order_no'),'CUSTOMER ORDER DATE :',fd(g('cust_order_date')));
+  fRow('CUSTOMER NAME :',g('cust_name'));
+  fRow('CUSTOMER ADDRESS :',g('cust_address'));
+  tRow('TANKS MODEL :',g('tank_model'),'CAPACITY (Ltrs.) :',g('capacity'));
+  y+=2;
+  sf('italic',7,BK);
+  doc.text('The above tank has been successfully erected and commissioned by us and fitted with the following attachments and accessories:',ML,y);
   y+=5;
 
-  // ===== DATES + CHECKLIST =====
-  ck(32);
-  const hCW=CW/2-6;
-  const dsy=y;
-
-  // Dates column
-  function dRow(lbl,val){
-    sf('bold',7.5,BK);
-    doc.text(lbl, ML, y+4);
-    sf('normal',8.5,BL);
-    doc.text(val, ML+doc.getTextWidth(lbl)+3, y+4);
-    doc.setDrawColor(...LG);
-    doc.setLineWidth(0.25);
-    doc.line(ML, y+6, ML+hCW, y+6);
-    y+=8;
+  /* ══════════ TABLE ══════════ */
+  const cW=[12,CW-12-24-28,24,28], heads=['Sr. No.','Particulars','Quantity','Location'], rh=5.2;
+  // header row
+  doc.setFillColor(...BK); doc.rect(ML,y,CW,rh+0.5,'F');
+  let cx=ML;
+  heads.forEach((h,i)=>{sf('bold',7.5,WH);doc.text(h,cx+cW[i]/2,y+rh/2+1.5,{align:'center'});cx+=cW[i];});
+  y+=rh+0.5;
+  // data rows
+  for(let i=1;i<=10;i++){
+    const ev=i%2===0;
+    doc.setFillColor(ev?248:255,ev?248:255,ev?248:255); doc.rect(ML,y,CW,rh,'F');
+    doc.setDrawColor(...LG); doc.setLineWidth(0.15); doc.rect(ML,y,CW,rh);
+    let rx=ML;
+    [String(i),g('p'+i),g('q'+i),g('l'+i)].forEach((v,j)=>{
+      if(j>0){doc.setDrawColor(...LG);doc.setLineWidth(0.15);doc.line(rx,y,rx,y+rh);}
+      sf('normal',j===0?7.5:8,j===0?GR:BK);
+      const vt=(doc.splitTextToSize(v,cW[j]-2)[0]||'');
+      doc.text(vt,rx+cW[j]/2,y+rh/2+1.5,{align:'center'});
+      rx+=cW[j];
+    });
+    y+=rh;
   }
-  dRow('Date of Completion of Installation :', formatDate(g('date_completion')));
-  dRow('Date of Handing Over :', formatDate(g('date_handing')));
+  y+=4;
 
-  // Checklist column
-  let ry=dsy;
-  const rX=ML+CW/2+4;
-  const checkBoxes=document.querySelectorAll('.check-box');
-  const checkLabels=[
-    'The tank has been installed successfully',
-    'All tanks accessories are fitted as per customer requirement',
-    'No issue found',
-    'Commissioning done'
-  ];
-  checkLabels.forEach((lbl,idx)=>{
-    const chk = checkBoxes[idx] && checkBoxes[idx].classList.contains('checked');
-    const lns = doc.splitTextToSize(lbl, CW/2-14);
-    sf('normal',7.5,BK);
-    lns.forEach((ln,li)=>{ doc.text(ln, rX, ry+4+li*4); });
-    // Draw checkbox square
-    doc.setDrawColor(...BK);
-    doc.setLineWidth(0.5);
-    doc.rect(ML+CW-7, ry+1, 6, 6);
-    if(chk){
-      // Draw a proper tick mark using lines
-      doc.setDrawColor(...BK);
-      doc.setLineWidth(1.0);
-      doc.line(ML+CW-6.2, ry+4.2, ML+CW-4.5, ry+6.0);
-      doc.line(ML+CW-4.5, ry+6.0, ML+CW-1.8, ry+2.5);
-    }
-    ry += Math.max(8, lns.length*4+3);
+  /* ══════════ DATES + CHECKLIST ══════════ */
+  const snap=y, hcw=CW/2-5;
+  function dRow(lbl,val){
+    sf('bold',7,BK); doc.text(lbl,ML,y+3.5);
+    sf('normal',7.5,BL); doc.text(val,ML+doc.getTextWidth(lbl)+2.5,y+3.5);
+    ln(ML,y+5.5,ML+hcw,y+5.5,0.2); y+=7;
+  }
+  dRow('Date of Completion of Installation :',fd(g('date_completion')));
+  dRow('Date of Handing Over :',fd(g('date_handing')));
+
+  // checklist
+  let ry=snap;
+  const rx=ML+CW/2+3;
+  const cLabels=['The tank has been installed successfully','All tanks accessories are fitted as per customer requirement','No issue found','Commissioning done'];
+  const cBoxes=document.querySelectorAll('.check-box');
+  cLabels.forEach((lbl,idx)=>{
+    const chk=cBoxes[idx]&&cBoxes[idx].classList.contains('checked');
+    const ls=doc.splitTextToSize(lbl,CW/2-14);
+    sf('normal',7,BK); ls.forEach((l,li)=>doc.text(l,rx,ry+3.5+li*3.5));
+    // checkbox
+    doc.setDrawColor(...BK); doc.setLineWidth(0.5); doc.rect(ML+CW-6,ry+0.5,5.5,5.5);
+    if(chk){doc.setDrawColor(...BK);doc.setLineWidth(0.9);doc.line(ML+CW-5.5,ry+3.5,ML+CW-4,ry+5.5);doc.line(ML+CW-4,ry+5.5,ML+CW-1.5,ry+1.8);}
+    ry+=Math.max(7,ls.length*3.5+2.5);
   });
-  y = Math.max(y, ry)+5;
+  y=Math.max(y,ry)+3;
 
-  // ===== CUSTOMER REMARKS =====
-  ck(14);
-  sf('bold',8.5,BK);
-  doc.text('Customer Remarks :', ML, y+4);
-  const crW=doc.getTextWidth('Customer Remarks :');
-  sf('normal',8.5,BK);
-  const crLines=doc.splitTextToSize(g('cust_remarks')||'', CW-crW-5);
-  crLines.forEach((ln,i)=>doc.text(ln, ML+crW+4, y+4+i*4.5));
-  doc.setDrawColor(...LG);
-  doc.setLineWidth(0.25);
-  const crH=Math.max(10, crLines.length*4.5+6);
-  doc.line(ML, y+crH, ML+CW, y+crH);
-  y += crH+5;
-
-  // ===== SIGNATURE SECTION =====
-  ck(62);
-  const sH=62, hW=CW/2;
-  doc.setDrawColor(...BK);
-  doc.setLineWidth(0.6);
-  doc.rect(ML, y, CW, sH);
-  doc.line(ML+hW, y, ML+hW, y+sH);
-
-  // Left cell
-  sf('bold',8,BK);
-  doc.text('For SHUBHAM TANKS AND LINERS PVT. LTD.', ML+2, y+6);
-  sf('normal',6.5,DGRAY);
-  doc.text('(In Technical Collaboration with Kingspan Water & Energy, Australia)', ML+2, y+11);
-
-  sf('bold',7.5,BK);
-  doc.text('Installation in charge Remarks :', ML+2, y+17);
+  /* ══════════ CUSTOMER REMARKS ══════════ */
+  sf('bold',8,BK); doc.text('Customer Remarks :',ML,y+3.5);
+  const crw=doc.getTextWidth('Customer Remarks :');
   sf('normal',8,BK);
-  const irLines=doc.splitTextToSize(g('install_remarks')||'', hW-6);
-  irLines.forEach((ln,i)=>doc.text(ln, ML+2, y+22+i*4.5));
+  const crls=doc.splitTextToSize(g('cust_remarks')||'',CW-crw-5);
+  crls.forEach((l,i)=>doc.text(l,ML+crw+3.5,y+3.5+i*4));
+  const crh=Math.max(8,crls.length*4+5);
+  ln(ML,y+crh,ML+CW,y+crh,0.2); y+=crh+4;
 
-  // Signature lines at bottom of left cell
-  doc.setDrawColor(...LG);
-  doc.setLineWidth(0.3);
-  doc.line(ML+2, y+sH-17, ML+hW-4, y+sH-17);
-  sf('bold',7,BK);
-  doc.text('Signature', ML+2, y+sH-12);
-  doc.line(ML+2, y+sH-8, ML+hW-4, y+sH-8);
-  doc.text('Name of Installation in charge', ML+2, y+sH-3);
-  sf('normal',8.5,BL);
-  doc.text(g('name_incharge'), ML+2, y+sH+2);
+  /* ══════════ SIGNATURE ══════════ */
+  const sh=54, hw=CW/2;
+  doc.setDrawColor(...BK); doc.setLineWidth(0.5);
+  doc.rect(ML,y,CW,sh); doc.line(ML+hw,y,ML+hw,y+sh);
 
-  // Right cell
-  sf('bold',8,BK);
-  doc.text('Customer Signature with Rubber Seal', ML+hW+2, y+6);
-  sf('normal',8,BK);
-  const csLines=doc.splitTextToSize(g('cust_sig_note')||'', hW-6);
-  csLines.forEach((ln,i)=>doc.text(ln, ML+hW+2, y+12+i*4.5));
+  // LEFT cell
+  sf('bold',7.5,BK);  doc.text('FOR SHUBHAM TANKS AND LINERS PVT. LTD.',ML+2,y+5.5);
+  sf('normal',6,DG);  doc.text('(In Technical Collaboration with Kingspan Water & Energy, Australia)',ML+2,y+9.5);
+  sf('bold',7,BK);    doc.text('Installation in charge Remarks :',ML+2,y+14);
+  sf('normal',7.5,BK);
+  const irl=doc.splitTextToSize(g('install_remarks')||'',hw-5);
+  irl.forEach((l,i)=>doc.text(l,ML+2,y+18.5+i*4));
+  // sig lines
+  doc.setDrawColor(...LG);doc.setLineWidth(0.25);
+  doc.line(ML+2,y+sh-15,ML+hw-3,y+sh-15);
+  sf('bold',6.5,BK); doc.text('Signature',ML+2,y+sh-10.5);
+  doc.line(ML+2,y+sh-7,ML+hw-3,y+sh-7);
+  doc.text('Name of Installation in charge',ML+2,y+sh-3);
+  sf('normal',8,BL); doc.text(g('name_incharge'),ML+2+doc.getTextWidth('Name of Installation in charge')+3,y+sh-3);
 
-  doc.setDrawColor(...BK);
-  doc.setLineWidth(0.5);
-  doc.line(ML+hW+2, y+sH/2+2, ML+CW-3, y+sH/2+2);
+  // RIGHT cell
+  sf('bold',7.5,BK); doc.text('CUSTOMER SIGNATURE WITH RUBBER SEAL',ML+hw+2,y+5.5);
+  sf('normal',7.5,BK);
+  const csl=doc.splitTextToSize(g('cust_sig_note')||'',hw-5);
+  csl.forEach((l,i)=>doc.text(l,ML+hw+2,y+11+i*4));
+  doc.setDrawColor(...BK);doc.setLineWidth(0.4);
+  doc.line(ML+hw+2,y+sh/2+2,ML+CW-2,y+sh/2+2);
+  sf('bold',7.5,BK); doc.text("Name of Customer's Authorised Person :",ML+hw+2,y+sh/2+7);
+  doc.setDrawColor(...LG);doc.setLineWidth(0.25);
+  doc.line(ML+hw+2,y+sh/2+11,ML+CW-2,y+sh/2+11);
+  sf('normal',8,BL); doc.text(g('auth_person'),ML+hw+2,y+sh/2+10);
+  sf('bold',7.5,BK); doc.text('Designation :',ML+hw+2,y+sh/2+19);
+  doc.line(ML+hw+2,y+sh/2+23,ML+CW-2,y+sh/2+23);
+  sf('normal',8,BL); doc.text(g('designation'),ML+hw+2+doc.getTextWidth('Designation :')+2,y+sh/2+19);
+  y+=sh+4;
 
-  sf('bold',8,BK);
-  doc.text("Name of Customer's Authorised Person :", ML+hW+2, y+sH/2+8);
-  doc.setDrawColor(...LG);
-  doc.setLineWidth(0.3);
-  doc.line(ML+hW+2, y+sH/2+13, ML+CW-3, y+sH/2+13);
-  sf('normal',8.5,BL);
-  doc.text(g('auth_person'), ML+hW+2, y+sH/2+12);
-  sf('bold',8,BK);
-  doc.text('Designation :', ML+hW+2, y+sH/2+22);
-  doc.line(ML+hW+2, y+sH/2+27, ML+CW-3, y+sH/2+27);
-  sf('normal',8.5,BL);
-  doc.text(g('designation'), ML+hW+2+doc.getTextWidth('Designation :')+2, y+sH/2+22);
-  y += sH+8;
-
-  // Footer
-  sf('normal',6,[180,180,180]);
-  doc.text('Generated: '+new Date().toLocaleString(), ML+CW/2, PH-5, {align:'center'});
+  /* ══════════ FOOTER ══════════ */
+  sf('normal',5.5,[185,185,185]);
+  doc.text('Generated: '+new Date().toLocaleString(),ML+CW/2,PH-4,{align:'center'});
 
   doc.save('WCR_Shubham_Tanks.pdf');
 }
